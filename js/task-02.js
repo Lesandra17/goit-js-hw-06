@@ -16,3 +16,4 @@ const listItems = ingredients.map((ingredient) => {
   return liElement;
 });
 container.append(...listItems);
+

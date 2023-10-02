@@ -14,8 +14,37 @@ const images = [
 ];
 const list = document.querySelector(".gallery");
 
-const markup = images.map(image=> {
-   return `<li class="gallery-item"><img src="${image.url}" alt="${image.alt}" class="gallery-img"></li>`;
-}).join(''); 
+images.forEach((image) => {
+  const li = document.createElement("li");
+  li.className = "gallery-item";
+  const img = document.createElement("img");
+  img.src = image.url;
+  img.alt = image.alt;
+  img.className = "gallery-img";
+  li.appendChild(img);
+  list.appendChild(li);
+});
+
+list.style.display = "flex";
+list.style.flexWrap = "wrap";
+list.style.justifyContent = "center";
+list.style.listStyle = "none";
+list.style.padding = "0";
+
+const galleryItems = document.querySelectorAll(".gallery-item");
+galleryItems.forEach((item) => {
+  item.style.margin = "15px";
+  item.style.padding = "15px";
+  item.style.border = "1px dotted #112244";
+});
+
+const galleryImages = document.querySelectorAll(".gallery-img");
+galleryImages.forEach((img) => {
+  img.style.maxWidth = "100%";
  
-list.insertAdjacentHTML("beforeend", markup);
+});
+
+
+
+
+
